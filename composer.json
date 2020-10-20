@@ -1,0 +1,67 @@
+{
+    "name": "gmartin3z/laravel-base",
+    "description": "Estructura para inicializar cualquier tipo de proyecto básico-mediano, hecha con laravel 5.2 y bootstrap 4.",
+    "keywords": ["webapp", "php", "laravel", "org"],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gmartin3z"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9 <7.3",
+        "ext-gd": "*",
+        "ext-fileinfo": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-tokenizer": "*",
+        "ext-openssl": "*",
+        "laravel/framework": "5.2.*",
+        "jenssegers/date": "^3.2",
+        "mews/captcha": "^3.0",
+        "intervention/image": "^2.5"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "barryvdh/laravel-debugbar": "^2.2"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

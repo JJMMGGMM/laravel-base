@@ -1,0 +1,5 @@
+/* cambiar puntero a desactivado
+al agregar/actualizar datos */
+[disabled]{
+  cursor: not-allowed;
+}
